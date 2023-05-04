@@ -1,19 +1,15 @@
-variable "lambda_provisioned_concurrency" {
+variable "environment_variables" {
+  description = "A map that defines environment variables for the Lambda Function."
   type        = map(string)
-  description = "Lambda provisioned concurrency by environment."
   default = {
-    "dev" : 1,
-    "staging" : 1,
-    "prod" : 2,
+    "envone"   = "one"
+    "envtwo"   = "two"
+    "envthree" = "three"
   }
 }
 
-variable "lambda_provisioned_concurrency_max" {
-  type        = map(string)
-  description = "Lambda provisioned concurrency by environment."
-  default = {
-    "dev" : 1,
-    "staging" : 1,
-    "prod" : 2,
-  }
+variable "create_function" {
+  description = "Controls whether Lambda Function resource should be created"
+  type        = bool
+  default     = true
 }
